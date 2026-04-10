@@ -486,7 +486,7 @@
         <button onclick="RapidMeta.switchTab('analysis')" class="tab-btn h-full text-sm font-medium text-slate-400 hover:text-white transition-all duration-200 border-b-2 border-transparent" data-tab="analysis" role="tab" aria-selected="false" aria-controls="tab-analysis" id="btn-tab-analysis">5. Analysis Suite</button>
         <button onclick="RapidMeta.switchTab('report')" class="tab-btn h-full text-sm font-medium text-purple-400 hover:text-purple-300 transition-all duration-200 border-b-2 border-transparent" data-tab="report" role="tab" aria-selected="false" aria-controls="tab-report" id="btn-tab-report">6. Scientific Output</button>
         <button onclick="RapidMeta.switchTab('nma')" class="tab-btn h-full text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-all duration-200 border-b-2 border-transparent" data-tab="nma" role="tab" aria-selected="false" aria-controls="tab-nma" id="btn-tab-nma" style="display:none">7. NMA</button>
-        <button onclick="RapidMeta.switchTab('doseresponse')" class="tab-btn h-full text-sm font-medium text-rose-400 hover:text-rose-300 transition-all duration-200 border-b-2 border-transparent" data-tab="doseresponse" role="tab" aria-selected="false" aria-controls="tab-doseresponse" id="btn-tab-doseresponse" style="display:none">8. Dose-Response</button>
+        <button onclick="RapidMeta.switchTab('doseresponse')" class="tab-btn h-full text-sm font-medium text-rose-400 hover:text-rose-300 transition-all duration-200 border-b-2 border-transparent" data-tab="doseresponse" role="tab" aria-selected="false" aria-controls="tab-doseresponse" id="btn-tab-doseresponse">8. Dose-Response</button>
     </nav>
 
     <!-- Stale Detection Banner (Task 8: D4) -->
@@ -9152,7 +9152,35 @@
         // ═══════════════════════════════════════════════════════════
         // v16.0: Dose-Response Engine (Emax model via grid search)
         // ═══════════════════════════════════════════════════════════
-        const DR_CONFIG = null; // Populated by generator for dose-response-enabled apps
+        const DR_CONFIG = {
+        "label": "Resmetirom Dose-Response (NASH Resolution at Week 52)",
+        "unit": "mg/day",
+        "outcomeLabel": "NASH Resolution Without Worsening Fibrosis (%)",
+        "source": "Harrison et al. NEJM 2024 (MAESTRO-NASH)",
+        "doses": [
+                {
+                        "dose": 0,
+                        "effect": 9.7,
+                        "se": 1.7,
+                        "n": 321,
+                        "label": "Placebo"
+                },
+                {
+                        "dose": 80,
+                        "effect": 25.9,
+                        "se": 2.5,
+                        "n": 322,
+                        "label": "Resmetirom 80mg"
+                },
+                {
+                        "dose": 100,
+                        "effect": 29.9,
+                        "se": 2.6,
+                        "n": 322,
+                        "label": "Resmetirom 100mg"
+                }
+        ]
+}; // Populated by generator for dose-response-enabled apps
 
         const DoseResponseEngine = {
             _getConfig() {
