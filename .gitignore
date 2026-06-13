@@ -37,3 +37,9 @@ yarn-error.log*
 
 # --- Session checkpoints (may contain local paths/state) ---
 PROGRESS.md
+
+# --- Sentinel scan artifacts (per-repo, not for VCS) ---
+STUCK_FAILURES.md
+STUCK_FAILURES.jsonl
+sentinel-findings.md
+sentinel-findings.jsonl
